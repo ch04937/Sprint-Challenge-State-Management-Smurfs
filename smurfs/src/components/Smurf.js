@@ -4,6 +4,7 @@ const Smurf = props => {
     return(
         <div>
             <h4>{props.smurf.name}</h4>
+            
         </div>
     )
 }
