@@ -8,6 +8,7 @@ import FormikSmurfForm from './components/SmurfForm';
 function App() {
     return (
       <div className="App">
+        
         <FormikSmurfForm />
         <SmurfList />
       </div>

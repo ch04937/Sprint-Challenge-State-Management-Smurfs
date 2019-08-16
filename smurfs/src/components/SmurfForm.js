@@ -3,33 +3,35 @@ import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
+import './smurfForm.css'
+
 function SmurfForm({ errors, touched, values, status }) {
     const [ users, setUsers ]= useState([]);
-    const [ login, setLogin ]= useState([false]);
     useEffect(() => {
         if (status) {
             axios
             .get('http://localhost:3333/smurfs')
             .then(res => setUsers(res.data));
             setUsers([...users, status]);
-            setLogin(true)
+
         }
     }, [status]);
         return(
-            <Form >
-                <div>
+            <Form className='form-container'>
+                <h1>Smurfville</h1>
+                <div className= 'form-field'>  
                 {touched.name && errors.name && <p>{errors.name}</p>}
-                <Field type="text" name="name" placeholder="name" />
+                Name: <Field type="text" name="name" placeholder="name" />
                 </div>
-                <div>
+                <div className= 'form-field'>
                 {touched.age && errors.age && <p>{errors.age}</p>}
-                <Field type="text" name="age" placeholder="age" />
+                Age: <Field type="age" name="age" placeholder="age" />
                 </div>
-                <div>
+                <div className= 'form-field'>
                 {touched.height && errors.height && <p>{errors.height}</p>}
-                <Field type="text" name="height" placeholder="height" />
+                Height: <Field type="height" name="height" placeholder="height" />
                 </div>
-                <button>Add to Smurfville</button>
+                <button className= 'button'>Add to Smurfville</button>
 
             </Form>
         )

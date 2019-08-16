@@ -6,12 +6,16 @@ import { getData } from '../actions';
 
 // import SmurfForm from './SmurfForm';
 import Smurf from './Smurf'
+import './smurfCards.css'
 
 const SmurfList = props => {
     return(
         <>
+        <div className='data-container'>
         <h1>Open Smurf APP</h1>
-        <button onClick={props.getData}>
+        <button 
+        className='button'
+        onClick={props.getData}>
         {props.isLoading ? (
           <Loader type="Circles" color="#00BFFF" height="15" width="100" />
         ) : (
@@ -20,6 +24,7 @@ const SmurfList = props => {
         </button>
         {props.smurf && 
         props.smurf.map(blue => <Smurf key={blue.name} smurf={blue} />)}
+        </div>
         </>
     )
 }

@@ -1,0 +1,10 @@
+.smurf-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 200px; 
+    border: 1px solid lightblue;
+}
+.data-container{
+    min-height: 300px;
+}
